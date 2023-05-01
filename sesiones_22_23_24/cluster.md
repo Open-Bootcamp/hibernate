@@ -188,15 +188,15 @@ tags:
     nosync: false
 ```
 
-NOTA: para los contenedores node2 y node3 hay que actualizar el nombre y la ip en el código anterior.
+_NOTA: para los contenedores node2 y node3 hay que actualizar el nombre y la ip en el código anterior._
 
 mkdir -p /data/patroni
 
-chown postgres:postgres /data/patroni
+chown -R postgres:postgres /data/patroni
 
 chmod 700 /data/patroni
 
-Repetir todo el proceso para node2 y node3. 
+**_Repetir todo el proceso para node2 y node3._**
 
 ## Configuración node4 
 
@@ -258,7 +258,9 @@ service haproxy restart
 
 ## Ejecutar patroni 
 
-Entrar a cada uno de los 3 contenedores node1, node2 y node3 y ejecutar el comando: 
+**_Entrar a cada uno de los 3 contenedores node1, node2 y node3 y ejecutar el comando:_**
+
+docker exec -it --user=postgres node1 bash
 
 /usr/local/bin/patroni /etc/patroni/config.yml
 
